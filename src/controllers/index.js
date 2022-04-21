@@ -1,4 +1,14 @@
 const favModel = require("../model/fav")
+const jwt = require('jsonwebtoken');
+
+//login
+const login = (req, res) => {
+    const user = {id: 3};
+    const token = jwt.sign({user}, 'my_secret_key');
+    res.json({
+        token
+    });
+}
 
 //get favs
 const getFavs =  (req, res) => {
@@ -37,7 +47,21 @@ const deleteFav = (req, res) => {
         .catch((error) => res.json({ message: error}));
 };
 
+function isAuthenticated(req, res, next){
+    const bearerHeader = req.headers['authorization'];
+    if(typeof bearerHeader !== 'undefined') {
+        const bearer = bearerHeader.split(" ");
+        const bearerToken = bearer[1];
+        req.token = bearerToken;
+        next();
+    } else {
+        res.sendStatus(403);
+    }
+}
+
 module.exports = {
+    isAuthenticated,
+    login,
     getFavs,
     createFavs,
     oneFav,
