@@ -10,3 +10,7 @@ music = {
 		"link": ""
     }
 }
+
+npm i -D jest supertest
+
+
