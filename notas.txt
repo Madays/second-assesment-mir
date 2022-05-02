@@ -13,4 +13,11 @@ music = {
 
 npm i -D jest supertest
 
+//babel
+	npm i --save-dev babel-jest @babel/core @babel/preset-env
+
+	//en el archivo en raiz .babelrc
+	npm i --save-dev babel-jest @babel/core @babel/preset-env
+
+
 
