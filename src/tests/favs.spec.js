@@ -1,14 +1,19 @@
-const request = require('supertest')
+const app = require('../app');
+const request = require('supertest');
 
-const app = require('../app.js')
+describe('register', () => {
+  it('returns bad request if first name is missing', async () => {
+    const res = await request(app).get('/api/favs');
 
-//Testing get all users endpoint
+    expect(res.statusCode).toEqual(200);
+  });
 
-describe("GET /favs", () => {
-    test("should respond with a 200 status code", async () => {
-        const response = await request(app).get("/api/favs");
-        expect(response.statusCode).toBe(200);
-    })
+  // it('returns bad request if first name is missing', async () => {
+  //   const res = await request(app)
+  //     .post('/register')
+  //     .send({ somethingElse: 'Jan' });
+
+  //   expect(res.statusCode).toEqual(400);
+  //   expect(res.body).toEqual('you need to pass a firstName');
+  // });
 });
-
- 
