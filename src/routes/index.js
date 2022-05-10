@@ -1,8 +1,9 @@
 const express = require('express');
+const router = express.Router();
 const isAuthenticated = require('../auth/isAuthenticate')
 const {login, getFavs, createFavs, oneFav, deleteFav} = require('../controllers/index')
 
-const router = express.Router()
+
 
 router.post('/login', login)
 router.get('/favs', getFavs)

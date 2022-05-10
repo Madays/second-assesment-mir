@@ -1,19 +1,23 @@
-const app = require('../app');
 const request = require('supertest');
 
-describe('register', () => {
-  it('returns bad request if first name is missing', async () => {
-    const res = await request(app).get('/api/favs');
+const fakeBooks = [
+  {
+    "email": 'maday@email.com',
+    "password": 'Total1#'
+  }
+]
 
-    expect(res.statusCode).toEqual(200);
-  });
-
-  // it('returns bad request if first name is missing', async () => {
-  //   const res = await request(app)
-  //     .post('/register')
-  //     .send({ somethingElse: 'Jan' });
-
-  //   expect(res.statusCode).toEqual(400);
-  //   expect(res.body).toEqual('you need to pass a firstName');
-  // });
+const email = fakeBooks[0].email;
+const password = fakeBooks[0].password;
+const emailValido = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+const passwordStrong = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i;
+describe('validar correo y contraseña',() => {
+  test('Estructura del correo', () => {
+    expect(email).toMatch(emailValido)
+  })
+  test('Contraseña segura: al menos una mayuscula, una minuscula, un número, un caracter especial y al menos de 8 caracteres ej Maday#987', () => {
+    expect(password).toMatch(passwordStrong)
+  })
 });
+
+

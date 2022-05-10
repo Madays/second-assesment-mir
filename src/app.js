@@ -1,6 +1,7 @@
 const express = require('express')
-const routes = require('./routes/index')
 const app = express()
+const routes = require('./routes/index')
+
 
 
 // const bodyParser = require('body-parser')
@@ -10,7 +11,7 @@ const app = express()
 
 //app.get('/', (req, res) => res.send('App is working'))
 app.use(express.json());
-app.use('/api', routes);
+app.use('/api',routes);
 
 module.exports = app;
 

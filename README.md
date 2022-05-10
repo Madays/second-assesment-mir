@@ -10,7 +10,7 @@
 Body login:
 {
 	"email": "maday@gmail.com",
-	"password": "12345678"
+	"password": "Maday#987"
 }
 ```
 | Description | Route |
