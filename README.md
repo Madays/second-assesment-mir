@@ -1,6 +1,6 @@
 # Second-assesment-mir
 # First part: build Resfull Api
-
+# To start the server: npm run dev
 # Endpoints
 
 | Description | Route |
@@ -10,7 +10,7 @@
 Body login:
 {
 	"email": "maday@gmail.com",
-	"password": "12345678"
+	"password": "Maday#987"
 }
 ```
 | Description | Route |
@@ -35,6 +35,7 @@ Body favorite list:
 ```
 MONGO_URI = mongodb://madays:madays@fav-shard-00-00.ckbnd.mongodb.net:27017,fav-shard-00-01.ckbnd.mongodb.net:27017,fav-shard-00-02.ckbnd.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-10a5jy-shard-0&authSource=admin&retryWrites=true&w=majority
 PORT = 4000
+JWT_KEY = 'my_secret_key'
 ```
 # Second part 
 ## Questions

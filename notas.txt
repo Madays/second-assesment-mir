@@ -19,5 +19,14 @@ npm i -D jest supertest
 	//en el archivo en raiz .babelrc
 	npm i --save-dev babel-jest @babel/core @babel/preset-env
 
+https://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/
+About the Database connection
+describe('Test the addLike method', () => {
+    beforeAll(() => {
+        mongoDB.connect();
+    });
 
-
+    afterAll((done) => {
+        mongoDB.disconnect(done);
+    });
+}

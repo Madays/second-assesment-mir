@@ -1,14 +1,23 @@
-const request = require('supertest')
+const request = require('supertest');
 
-const app = require('../app.js')
+const fakeBooks = [
+  {
+    "email": 'maday@email.com',
+    "password": 'Total1#'
+  }
+]
 
-//Testing get all users endpoint
-
-describe("GET /favs", () => {
-    test("should respond with a 200 status code", async () => {
-        const response = await request(app).get("/api/favs");
-        expect(response.statusCode).toBe(200);
-    })
+const email = fakeBooks[0].email;
+const password = fakeBooks[0].password;
+const emailValido = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+const passwordStrong = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i;
+describe('validar correo y contraseña',() => {
+  test('Estructura del correo', () => {
+    expect(email).toMatch(emailValido)
+  })
+  test('Contraseña segura: al menos una mayuscula, una minuscula, un número, un caracter especial y al menos de 8 caracteres ej Maday#987', () => {
+    expect(password).toMatch(passwordStrong)
+  })
 });
 
- 
+

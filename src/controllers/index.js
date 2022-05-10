@@ -8,7 +8,7 @@ const login = (req, res) => {
         "password": req.body.password
     };
     if(user.email && user.password){
-        const token = jwt.sign({user}, 'my_secret_key');
+        const token = jwt.sign({user}, process.env.JWT_KEY);
         res.json({
             token
         });
